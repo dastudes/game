@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Legend of Mugard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --parchment: #f4efe4;
+      --parchment-dark: #e8e0d0;
+      --ink: #2c2416;
+      --ink-light: #5c4a36;
+      --accent: #8b5a2b;
+      --accent-light: #c4915c;
+      --forest-green: #3d5c3d;
+      --mugard-glow: #d4a574;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: 
+        radial-gradient(ellipse at top, #6b5344 0%, #3d2e24 50%, #2a1f18 100%);
+      font-family: 'Spectral', Georgia, serif;
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .game-container {
+      width: 100%;
+      max-width: 800px;
+      background: var(--parchment);
+      background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-blend-mode: soft-light;
+      border-radius: 4px;
+      box-shadow: 
+        0 4px 20px rgba(0,0,0,0.4),
+        0 0 60px rgba(0,0,0,0.2),
+        inset 0 0 100px rgba(139,90,43,0.1);
+      border: 1px solid #8b7355;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(to right, 
+        var(--accent) 0%, 
+        var(--accent-light) 25%, 
+        var(--accent) 50%, 
+        var(--accent-light) 75%, 
+        var(--accent) 100%
+      );
+      opacity: 0.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 20px;
+      border-bottom: 1px solid rgba(139,90,43,0.3);
+    }
+
+    h1 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 5px 0;
+      letter-spacing: 0.05em;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-style: italic;
+      color: var(--ink-light);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .game-output {
+      height: 400px;
+      overflow-y: auto;
+      padding: 25px 30px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      scroll-behavior: smooth;
+    }
+
+    .game-output::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .game-output::-webkit-scrollbar-track {
+      background: var(--parchment-dark);
+    }
+
+    .game-output::-webkit-scrollbar-thumb {
+      background: var(--accent-light);
+      border-radius: 4px;
+    }
+
+    .message {
+      margin-bottom: 20px;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .narration {
+      color: var(--ink);
+    }
+
+    .dialogue {
+      margin-left: 20px;
+      padding-left: 15px;
+      border-left: 3px solid var(--accent-light);
+      font-style: italic;
+    }
+
+    .dialogue.mugard {
+      border-left-color: var(--forest-green);
+      background: linear-gradient(90deg, rgba(61,92,61,0.08) 0%, transparent 100%);
+      padding: 10px 15px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .speaker {
+      font-weight: 500;
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .dialogue.mugard .speaker {
+      color: var(--forest-green);
+    }
+
+    .player-input-echo {
+      color: var(--ink-light);
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      background: rgba(0,0,0,0.05);
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .player-input-echo::before {
+      content: '> ';
+      color: var(--accent);
+    }
+
+    .error {
+      color: #8b4513;
+      font-style: italic;
+    }
+
+    .room-title {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .exits {
+      color: var(--ink-light);
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .exits span {
+      color: var(--forest-green);
+      font-weight: 500;
+    }
+
+    .input-area {
+      display: flex;
+      gap: 10px;
+      padding: 20px 30px 25px;
+      background: var(--parchment-dark);
+      border-top: 1px solid rgba(139,90,43,0.3);
+    }
+
+    #player-input {
+      flex: 1;
+      padding: 12px 15px;
+      font-family: 'Spectral', Georgia, serif;
+      font-size: 1rem;
+      background: var(--parchment);
+      border: 1px solid var(--accent-light);
+      border-radius: 4px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #player-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(139,90,43,0.2);
+    }
+
+    #player-input::placeholder {
+      color: var(--ink-light);
+      opacity: 0.6;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: var(--parchment);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background: var(--ink-light);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      border-top: 1px solid rgba(139,90,43,0.2);
+    }
+
+    .inventory-display {
+      display: none;
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      background: var(--parchment);
+      border: 1px solid var(--accent-light);
+      border-radius: 4px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      max-width: 200px;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+
+    .inventory-display.show {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .inventory-display h3 {
+      margin: 0 0 10px 0;
+      font-family: 'Crimson Pro', Georgia, serif;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .inventory-display ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .inventory-display li {
+      margin-bottom: 5px;
+    }
+
+    /* Mugard sound indicator */
+    .mugard-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--forest-green);
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Opening sequence */
+    .opening {
+      text-align: center;
+      padding: 40px 30px;
+    }
+
+    .opening .story-start {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .opening .continue-prompt {
+      margin-top: 30px;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <header>
+      <h1>The Legend of Mugard</h1>
+      <p class="subtitle">A Tale of Lemi</p>
+    </header>
+    
+    <div class="inventory-display" id="inventory-panel">
+      <h3>Carrying</h3>
+      <ul id="inventory-list">
+        <li><em>Nothing yet</em></li>
+      </ul>
+    </div>
+    
+    <div class="game-output" id="output">
+      <div class="opening">
+        <p class="story-start">
+          Once upon a time there was a girl named Lemi<br>
+          who lived with the monkeys on Monkey Island.
+        </p>
+        <p class="continue-prompt">Press Enter or type anything to begin...</p>
+      </div>
+    </div>
+    
+    <div class="input-area">
+      <input type="text" id="player-input" placeholder="What do you do?" autofocus>
+      <button id="submit-btn">Do</button>
+    </div>
+    
+    <footer>
+      Type <strong>help</strong> for commands • <strong>look</strong> to examine your surroundings
+    </footer>
+  </div>
+
+  <!-- Audio element for Mugard melody -->
+  <audio id="mugard-sound" preload="auto">
+    <!-- We'll add the audio source later -->
+  </audio>
+
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "title": "The Legend of Mugard",
+    "subtitle": "A Tale of Lemi",
+    "version": "0.1.0"
+  },
+  "languages": {
+    "mugard": {
+      "description": "The ancient language of the valley, still spoken by the monkeys",
+      "soundFile": "mugard-melody.mp3",
+      "playSound": true
+    },
+    "glum": {
+      "description": "The phonetic language spoken by humans in the city",
+      "soundFile": null,
+      "playSound": false
+    }
+  },
+  "player": {
+    "name": "Lemi",
+    "age": 13,
+    "inventory": [],
+    "languageSkill": 20,
+    "location": "sleeping_hollow"
+  },
+  "flags": {
+    "gameStarted": false,
+    "wokenUp": false,
+    "foundBlanket": false,
+    "visitedGatheringTrees": false,
+    "visitedOldWall": false,
+    "visitedHiddenGrotto": false,
+    "visitedAncientStone": false,
+    "partyStarted": false,
+    "revelationHeard": false,
+    "receivedKeepsake": false,
+    "leftTheIsland": false
+  },
+  "characters": {
+    "nela": {
+      "id": "nela",
+      "name": "Nela",
+      "description": "The elder monkey who has cared for you since you were a baby. Her fur is silver-gray, and her eyes hold deep wisdom and endless patience.",
+      "language": "mugard",
+      "location": "big_fig",
+      "dialogue": {
+        "default": "Nela watches you with warm, knowing eyes.",
+        "party": "My dear Lemi, now that you are thirteen summers old, there is something you must know.",
+        "revelation": "Long ago, before the great catastrophe, we were not as you see us now. We lived alongside humans in harmony. Your grandmother, Keni, was the greatest wizard the valley had ever known. She saved us all... but at a great cost. You are her blood, child. You carry her gift within you."
+      }
+    },
+    "ohblio": {
+      "id": "ohblio",
+      "name": "Ohblio",
+      "description": "Your best friend since you can remember. Ohblio is young and energetic, with bright curious eyes and a mischievous streak.",
+      "language": "mugard",
+      "location": "big_fig",
+      "dialogue": {
+        "default": "Ohblio bounces excitedly, barely containing himself.",
+        "hiding": "Ohblio is nowhere to be found. Strange.",
+        "party": "Lemi! Lemi! Happy birthday! I almost told you three times but Nela said she'd make me eat only bitter leaves for a moon!"
+      }
+    },
+    "caretaker": {
+      "id": "caretaker",
+      "name": "The Caretaker",
+      "realName": null,
+      "description": "The human woman who tends to Monkey Island. She moves quietly and has kind eyes. She is the only human who knows your secret.",
+      "language": "glum",
+      "location": null,
+      "dialogue": {
+        "default": "She speaks in the flat tones of Glum, but her meaning is clear enough.",
+        "helping": "You... go... careful. Forest... dangerous. But you... strong."
+      }
+    }
+  },
+  "rooms": {
+    "sleeping_hollow": {
+      "id": "sleeping_hollow",
+      "name": "The Sleeping Hollow",
+      "description": "A cozy depression in the earth beneath the roots of an old fig tree, lined with soft leaves and woven grass. Dappled morning light filters through the canopy above. This is where you sleep, nested among the monkeys who are your family. But this morning, you wake to find yourself alone. The hollow feels strangely quiet.",
+      "exits": {
+        "north": "gathering_trees",
+        "east": "old_wall"
+      },
+      "objects": ["worn_blanket"],
+      "characters": [],
+      "firstVisit": true,
+      "onFirstVisit": "You stretch and yawn, rubbing sleep from your eyes. Where is everyone? Usually Ohblio is here, pestering you to wake up. Usually Nela is nearby, humming softly. But today... silence."
+    },
+    "gathering_trees": {
+      "id": "gathering_trees",
+      "name": "The Gathering Trees",
+      "description": "A cluster of fruit trees where the monkey family usually gathers to eat and share stories. Ripe mangoes hang heavy on the branches, and the ground is soft with fallen leaves. But no one is here.",
+      "exits": {
+        "south": "sleeping_hollow",
+        "west": "hidden_grotto",
+        "north": "ancient_stone",
+        "east": "big_fig"
+      },
+      "objects": ["dropped_mango"],
+      "characters": [],
+      "firstVisit": true,
+      "onFirstVisit": "The trees are heavy with fruit, but not a single monkey is eating. You spot a half-eaten mango on the ground, as if someone left in a hurry."
+    },
+    "old_wall": {
+      "id": "old_wall",
+      "name": "The Old Wall",
+      "description": "The boundary between your world and theirs. A tall stone wall, weathered and mossy, separates Monkey Island from the rest of the zoo. Through a small crack, you can glimpse the paths where humans walk, pointing and staring at creatures they do not understand.",
+      "exits": {
+        "west": "sleeping_hollow",
+        "north": "big_fig"
+      },
+      "objects": ["peephole", "loose_stone"],
+      "characters": [],
+      "firstVisit": true,
+      "onFirstVisit": "You hear the distant chatter of humans beyond the wall—flat, toneless sounds. Glum, you've learned to call it. Through the crack, you watch a child point at something and laugh."
+    },
+    "hidden_grotto": {
+      "id": "hidden_grotto",
+      "name": "The Hidden Grotto",
+      "description": "A secret place behind a curtain of hanging vines, where a small spring bubbles up from the rocks. Only you and Ohblio know about this spot. You discovered it together three summers ago, and it has been your private refuge ever since.",
+      "exits": {
+        "east": "gathering_trees"
+      },
+      "objects": ["spring_water", "carved_initials"],
+      "characters": [],
+      "firstVisit": true,
+      "onFirstVisit": "The grotto is peaceful, the water singing its quiet song. But Ohblio isn't here either. You and he promised to always meet here if anything went wrong. So why...?"
+    },
+    "ancient_stone": {
+      "id": "ancient_stone",
+      "name": "The Ancient Stone",
+      "description": "A large, flat stone covered in worn carvings that no one has ever explained to you. The monkeys treat this place with reverence, sometimes sitting here in silence. The symbols seem to dance at the edge of meaning—almost readable, but not quite.",
+      "exits": {
+        "south": "gathering_trees",
+        "east": "big_fig"
+      },
+      "objects": ["stone_carvings"],
+      "characters": [],
+      "firstVisit": true,
+      "onFirstVisit": "In the morning light, the carvings seem different somehow. You trace a finger over one symbol—a tree with roots that reach both up and down—and feel a strange tingling in your chest."
+    },
+    "big_fig": {
+      "id": "big_fig",
+      "name": "The Big Fig",
+      "description": "The largest tree on the island, its trunk wider than ten monkeys holding hands. Its branches spread like a great green umbrella over everything. This is where the family gathers for celebrations, for meetings, for all the important moments of monkey life.",
+      "exits": {
+        "west": "gathering_trees",
+        "south": "old_wall"
+      },
+      "objects": ["hanging_vines", "flower_garlands"],
+      "characters": ["nela", "ohblio"],
+      "firstVisit": true,
+      "onFirstVisit": "As you push through the leaves into the clearing around the Big Fig, a chorus of voices erupts: 'SURPRISE!' The entire family is here—Nela at the center, Ohblio bouncing with barely contained excitement, and dozens of other monkeys chattering and cheering. Garlands of flowers hang from every branch. It's a party. YOUR party.",
+      "triggersEvent": "birthday_party"
+    }
+  },
+  "objects": {
+    "worn_blanket": {
+      "id": "worn_blanket",
+      "name": "worn blanket",
+      "description": "A soft, faded blanket that Nela wove for you when you were small. It smells of home.",
+      "canTake": true,
+      "location": "sleeping_hollow",
+      "onTake": "You fold the blanket carefully. Somehow, you feel you should bring it with you today."
+    },
+    "dropped_mango": {
+      "id": "dropped_mango",
+      "name": "half-eaten mango",
+      "description": "A ripe mango with small bite marks. Someone was eating this and left suddenly.",
+      "canTake": true,
+      "location": "gathering_trees",
+      "onTake": "You pick up the mango. Waste not, want not, as Nela always says."
+    },
+    "peephole": {
+      "id": "peephole",
+      "name": "crack in the wall",
+      "description": "A narrow crack in the old stone wall, just wide enough to peer through.",
+      "canTake": false,
+      "location": "old_wall",
+      "onExamine": "Through the crack, you see the zoo pathways. Humans stroll past—tall, strange creatures who walk on two legs like you do. You've always wondered about that."
+    },
+    "loose_stone": {
+      "id": "loose_stone",
+      "name": "loose stone",
+      "description": "One of the wall stones wobbles slightly when touched.",
+      "canTake": false,
+      "location": "old_wall",
+      "onExamine": "The stone shifts when you push it. There might be a space behind the wall... but Nela has always warned you never to go beyond it."
+    },
+    "spring_water": {
+      "id": "spring_water",
+      "name": "spring water",
+      "description": "Clear, cold water bubbling up from somewhere deep below.",
+      "canTake": false,
+      "location": "hidden_grotto",
+      "onExamine": "The water is cool and sweet. It tastes of stone and secrets."
+    },
+    "carved_initials": {
+      "id": "carved_initials",
+      "name": "carved initials",
+      "description": "Rough letters scratched into the rock: L + O. You carved them here with Ohblio, the summer you discovered this place.",
+      "canTake": false,
+      "location": "hidden_grotto",
+      "onExamine": "You smile, remembering the afternoon you and Ohblio spent hours scratching these marks. 'Friends forever,' he had said. 'Even longer,' you'd replied."
+    },
+    "stone_carvings": {
+      "id": "stone_carvings",
+      "name": "ancient carvings",
+      "description": "Symbols worn smooth by countless years. A tree with roots reaching up and down. Figures that might be humans, might be monkeys, might be both. A star, or perhaps a flower.",
+      "canTake": false,
+      "location": "ancient_stone",
+      "onExamine": "The more you look, the more the symbols seem to shift and breathe. For a moment, you think you almost understand them... but then the meaning slips away, like a dream upon waking."
+    },
+    "hanging_vines": {
+      "id": "hanging_vines",
+      "name": "hanging vines",
+      "description": "Long vines draping from the great branches of the Big Fig, perfect for swinging.",
+      "canTake": false,
+      "location": "big_fig",
+      "onExamine": "You've spent countless hours swinging from these vines with Ohblio, shrieking with laughter."
+    },
+    "flower_garlands": {
+      "id": "flower_garlands",
+      "name": "flower garlands",
+      "description": "Delicate chains of yellow and white flowers strung between the branches.",
+      "canTake": false,
+      "location": "big_fig",
+      "onExamine": "Someone spent hours making these. The flowers are the kind that only bloom at the top of the island, where the old ones rarely climb anymore. Ohblio must have gathered them."
+    }
+  },
+  "events": {
+    "birthday_party": {
+      "id": "birthday_party",
+      "trigger": "enter_big_fig_first_time",
+      "sequence": [
+        {
+          "type": "narration",
+          "text": "The celebration swirls around you—familiar faces, joyful sounds, the warmth of belonging. Ohblio swings down from a branch and nearly knocks you over with his embrace."
+        },
+        {
+          "type": "dialogue",
+          "character": "ohblio",
+          "language": "mugard",
+          "text": "Lemi! Lemi! Happy birthday! I almost told you three times but Nela said she'd make me eat only bitter leaves for a moon!"
+        },
+        {
+          "type": "narration",
+          "text": "You laugh, hugging him back. But then you notice Nela's expression. She is smiling, yes, but there is something else in her eyes. Something heavy."
+        },
+        {
+          "type": "narration",
+          "text": "The other monkeys slowly fall silent. They part, creating a path to where Nela sits beneath the great trunk. She gestures for you to come closer."
+        },
+        {
+          "type": "dialogue",
+          "character": "nela",
+          "language": "mugard",
+          "text": "My dear Lemi. Thirteen summers you have lived among us, and we have loved you as our own. But you are not a monkey, child. You have always known this. What you do not know... is why you are here. And who you truly are."
+        },
+        {
+          "type": "narration",
+          "text": "The silence is absolute. Even the birds seem to be listening."
+        }
+      ],
+      "setsFlags": {
+        "partyStarted": true
+      },
+      "nextEvent": "revelation"
+    },
+    "revelation": {
+      "id": "revelation",
+      "trigger": "after_birthday_party",
+      "sequence": [
+        {
+          "type": "dialogue",
+          "character": "nela",
+          "language": "mugard",
+          "text": "Long ago, before the great catastrophe, we were not as you see us now. We were people—humans, like you. We lived in this valley alongside others, and we shared a language: Mugard. The language we still speak."
+        },
+        {
+          "type": "narration",
+          "text": "A murmur ripples through the gathered monkeys. Some of the older ones lower their heads."
+        },
+        {
+          "type": "dialogue",
+          "character": "nela",
+          "language": "mugard",
+          "text": "Then came the defilement of the World Tree, and everything changed. A great wizard named Keni—the greatest the valley had ever known—saved us from destruction. But the magic transformed us. We became what we are now, and the humans forgot we ever existed."
+        },
+        {
+          "type": "narration",
+          "text": "Nela reaches out and takes your hand in her weathered paw."
+        },
+        {
+          "type": "dialogue",
+          "character": "nela",
+          "language": "mugard",
+          "text": "Keni was your grandmother, Lemi. You are her blood. Her gift lives in you. And now that you are of age... you must decide what to do with it."
+        },
+        {
+          "type": "narration",
+          "text": "She presses something small and warm into your palm—a pendant on a woven cord, shaped like a seed, glowing faintly from within."
+        },
+        {
+          "type": "dialogue",
+          "character": "nela",
+          "language": "mugard",
+          "text": "This was hers. Now it is yours. The forest to the west calls to those with the gift. If you can pass through its trials, you will find the wizard school—and perhaps, a way to restore what was lost."
+        }
+      ],
+      "setsFlags": {
+        "revelationHeard": true,
+        "receivedKeepsake": true
+      },
+      "addsToInventory": ["keni_pendant"]
+    }
+  },
+  "vocabulary": {
+    "verbs": {
+      "go": ["go", "walk", "move", "travel", "head"],
+      "north": ["north", "n"],
+      "south": ["south", "s"],
+      "east": ["east", "e"],
+      "west": ["west", "w"],
+      "look": ["look", "examine", "inspect", "study", "view", "check", "x", "l"],
+      "take": ["take", "get", "grab", "pick up", "collect"],
+      "drop": ["drop", "put down", "discard", "leave"],
+      "inventory": ["inventory", "i", "items", "carrying"],
+      "talk": ["talk", "speak", "ask", "say", "tell", "chat"],
+      "use": ["use", "activate"],
+      "help": ["help", "hint", "?"],
+      "save": ["save"],
+      "load": ["load", "restore"]
+    },
+    "articles": ["a", "an", "the", "some"],
+    "prepositions": ["to", "at", "with", "on", "in", "from", "about"]
+  }
+}
