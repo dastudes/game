@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Legend of Mugard</title>
+  <title>The Girl Who Lived on Monkey Island</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -308,27 +308,156 @@
     /* Opening sequence */
     .opening {
       text-align: center;
-      padding: 40px 30px;
+      padding: 60px 30px;
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
+        url('images/opening-bg.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 0;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .opening .story-start {
-      font-size: 1.2rem;
-      line-height: 1.8;
+      font-size: 1.4rem;
+      line-height: 1.9;
       font-style: italic;
-      color: var(--ink);
+      color: #f4efe4;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5);
+      max-width: 500px;
     }
 
     .opening .continue-prompt {
       margin-top: 30px;
-      color: var(--accent);
+      color: var(--mugard-glow);
       font-size: 0.95rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+
+    /* Mobile styles */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .game-container {
+        border-radius: 0;
+      }
+
+      header {
+        padding: 20px 15px 15px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+      }
+
+      .game-output {
+        height: calc(100vh - 280px);
+        min-height: 250px;
+        max-height: 400px;
+        padding: 15px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .message {
+        margin-bottom: 15px;
+      }
+
+      .dialogue {
+        margin-left: 10px;
+        padding-left: 10px;
+      }
+
+      .dialogue.mugard {
+        padding: 8px 10px;
+      }
+
+      .room-title {
+        font-size: 1.15rem;
+      }
+
+      .input-area {
+        padding: 15px;
+        gap: 8px;
+      }
+
+      #player-input {
+        padding: 12px;
+        font-size: 16px; /* Prevents iOS zoom on focus */
+      }
+
+      button {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        padding: 12px;
+        font-size: 0.8rem;
+      }
+
+      .inventory-display {
+        top: 60px;
+        right: 10px;
+        max-width: 160px;
+        padding: 10px;
+        font-size: 0.85rem;
+      }
+
+      .opening {
+        padding: 40px 20px;
+        min-height: 280px;
+      }
+
+      .opening .story-start {
+        font-size: 1.15rem;
+        line-height: 1.7;
+      }
+
+      .exits {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Extra small phones */
+    @media (max-width: 380px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .game-output {
+        padding: 12px;
+        font-size: 0.95rem;
+      }
+
+      .input-area {
+        flex-wrap: wrap;
+      }
+
+      #player-input {
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="game-container">
     <header>
-      <h1>The Legend of Mugard</h1>
+      <h1>The Girl Who Lived on Monkey Island</h1>
       <p class="subtitle">A Tale of Lemi</p>
     </header>
     
