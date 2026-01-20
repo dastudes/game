@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "The Legend of Mugard",
-    "subtitle": "A Tale of Lemi",
-    "version": "0.1.0"
+    "title": "The Girl Who Lived on Monkey Island",
+    "subtitle": "A Tale of Mugard",
+    "version": "0.2.0"
   },
   "languages": {
     "mugard": {
@@ -31,6 +31,9 @@
     "visitedOldWall": false,
     "visitedHiddenGrotto": false,
     "visitedAncientStone": false,
+    "visitedNelasBower": false,
+    "visitedShore": false,
+    "examinedEmptyNest": false,
     "partyStarted": false,
     "revelationHeard": false,
     "receivedKeepsake": false,
@@ -78,81 +81,108 @@
     "sleeping_hollow": {
       "id": "sleeping_hollow",
       "name": "The Sleeping Hollow",
-      "description": "A cozy depression in the earth beneath the roots of an old fig tree, lined with soft leaves and woven grass. Dappled morning light filters through the canopy above. This is where you sleep, nested among the monkeys who are your family. But this morning, you wake to find yourself alone. The hollow feels strangely quiet.",
+      "description": "A cozy depression in the earth beneath the gnarled roots of an old fig tree, lined with soft leaves and woven grass that holds the warmth of many bodies. Dappled morning light filters through the canopy above, painting golden coins on the dark earth. This is where you sleep, nested among the monkeys who are your family. But this morning, you wake to find yourself alone. The hollow feels strangely quiet, the air still holding the memory of warmth.",
       "exits": {
         "north": "gathering_trees",
-        "east": "old_wall"
+        "east": "old_wall",
+        "west": "nelas_bower"
       },
-      "objects": ["worn_blanket"],
+      "objects": ["worn_blanket", "woven_doll", "leaf_nest"],
       "characters": [],
       "firstVisit": true,
-      "onFirstVisit": "You stretch and yawn, rubbing sleep from your eyes. Where is everyone? Usually Ohblio is here, pestering you to wake up. Usually Nela is nearby, humming softly. But today... silence."
+      "onFirstVisit": "You stretch and yawn, rubbing sleep from your eyes. The nest beside you—where Ohblio usually curls up, his tail twitching in dreams—is empty. Nela's spot nearby is cold. Somewhere above, a single bird calls out, but no one answers. The silence feels like a held breath."
+    },
+    "nelas_bower": {
+      "id": "nelas_bower",
+      "name": "Nela's Bower",
+      "description": "A sheltered alcove where the old roots create a natural canopy, draped with dried vines and soft moss. This is Nela's private space, where she comes to think and sometimes to weave. The air smells of herbs and the particular dusty sweetness of aged wood. Morning light barely reaches here.",
+      "exits": {
+        "east": "sleeping_hollow",
+        "south": "the_shore"
+      },
+      "objects": ["empty_nest", "scattered_petals", "weaving_frame", "herb_bundles"],
+      "characters": [],
+      "firstVisit": true,
+      "onFirstVisit": "You pause at the entrance, feeling like an intruder. You rarely come here uninvited. But Nela's nest is empty and cold—she hasn't slept here tonight. On the ground, you notice a trail of yellow petals leading away, as if dropped in haste."
+    },
+    "the_shore": {
+      "id": "the_shore",
+      "name": "The Shore",
+      "description": "The edge of the island, where the earth gives way to dark water. The moat that surrounds Monkey Island is not wide—perhaps twenty paces—but to you it has always been an ocean. Beyond the water rises the wall of the enclosure, and beyond that, glimpses of the world. In the far distance, past the zoo, the towers of Delnai catch the morning light.",
+      "exits": {
+        "north": "nelas_bower"
+      },
+      "objects": ["dark_water", "driftwood_collection", "distant_city", "scratched_stones"],
+      "characters": [],
+      "firstVisit": true,
+      "onFirstVisit": "The water laps softly against the shore, the only sound in the still morning. You've spent many hours here, watching the city lights come on at dusk, wondering what it would be like to walk those streets. You and Ohblio have done it—snuck across at night, explored the sleeping city—but it never stops feeling like a dream."
     },
     "gathering_trees": {
       "id": "gathering_trees",
       "name": "The Gathering Trees",
-      "description": "A cluster of fruit trees where the monkey family usually gathers to eat and share stories. Ripe mangoes hang heavy on the branches, and the ground is soft with fallen leaves. But no one is here.",
+      "description": "A cluster of fruit trees where the monkey family usually gathers to eat and share stories. Ripe mangoes hang heavy on the branches, their sweet smell thick in the air. The ground is soft with fallen leaves and scattered fruit, buzzing with insects. Normally this place would be alive with chatter and movement. But now the only sound is the drone of flies.",
       "exits": {
         "south": "sleeping_hollow",
         "west": "hidden_grotto",
         "north": "ancient_stone",
         "east": "big_fig"
       },
-      "objects": ["dropped_mango"],
+      "objects": ["dropped_mango", "fallen_flower", "claw_marks"],
       "characters": [],
       "firstVisit": true,
-      "onFirstVisit": "The trees are heavy with fruit, but not a single monkey is eating. You spot a half-eaten mango on the ground, as if someone left in a hurry."
+      "onFirstVisit": "The trees are heavy with fruit, but not a single monkey is eating. That's wrong—at this hour, there should be at least a dozen here, squabbling over the ripest mangoes. You spot a half-eaten mango on the ground, still fresh. And beside it, a single yellow flower—the kind that grows near the Big Fig."
     },
     "old_wall": {
       "id": "old_wall",
       "name": "The Old Wall",
-      "description": "The boundary between your world and theirs. A tall stone wall, weathered and mossy, separates Monkey Island from the rest of the zoo. Through a small crack, you can glimpse the paths where humans walk, pointing and staring at creatures they do not understand.",
+      "description": "The boundary between your world and theirs. A tall stone wall, weathered and bearded with moss, separates Monkey Island from the rest of the zoo. The stones are ancient, older than the zoo itself—Nela once told you they were part of something else, long ago. Through a small crack, you can glimpse the paths where humans walk, pointing and staring at creatures they do not understand.",
       "exits": {
         "west": "sleeping_hollow",
         "north": "big_fig"
       },
-      "objects": ["peephole", "loose_stone"],
+      "objects": ["peephole", "loose_stone", "moss_patterns"],
       "characters": [],
       "firstVisit": true,
-      "onFirstVisit": "You hear the distant chatter of humans beyond the wall—flat, toneless sounds. Glum, you've learned to call it. Through the crack, you watch a child point at something and laugh."
+      "onFirstVisit": "You hear the distant chatter of humans beyond the wall—flat, toneless sounds. Glum, you've learned to call their speech, though you've picked up enough to understand simple things. Through the crack, you watch a child point at a colorful bird in another enclosure and laugh. The sound is strange—joyful but hollow, like an echo of something real."
     },
     "hidden_grotto": {
       "id": "hidden_grotto",
       "name": "The Hidden Grotto",
-      "description": "A secret place behind a curtain of hanging vines, where a small spring bubbles up from the rocks. Only you and Ohblio know about this spot. You discovered it together three summers ago, and it has been your private refuge ever since.",
+      "description": "A secret place behind a curtain of hanging vines, where a small spring bubbles up from between the rocks with a sound like quiet laughter. Only you and Ohblio know about this spot. You discovered it together three summers ago, following a dragonfly through a gap you'd never noticed before. The air here is cool and tastes of stone and green growing things.",
       "exits": {
         "east": "gathering_trees"
       },
-      "objects": ["spring_water", "carved_initials"],
+      "objects": ["spring_water", "carved_initials", "smooth_pebbles", "green_light"],
       "characters": [],
       "firstVisit": true,
-      "onFirstVisit": "The grotto is peaceful, the water singing its quiet song. But Ohblio isn't here either. You and he promised to always meet here if anything went wrong. So why...?"
+      "onFirstVisit": "The grotto is peaceful, the water singing its quiet song to the stones. But Ohblio isn't here. You and he have a pact—if anything goes wrong, meet at the grotto. So where is he? You feel a flutter of worry in your chest, then push it down. It's probably nothing. It's probably fine."
     },
     "ancient_stone": {
       "id": "ancient_stone",
       "name": "The Ancient Stone",
-      "description": "A large, flat stone covered in worn carvings that no one has ever explained to you. The monkeys treat this place with reverence, sometimes sitting here in silence. The symbols seem to dance at the edge of meaning—almost readable, but not quite.",
+      "description": "A large, flat stone thrust up from the earth, its surface covered in worn carvings that no one has ever fully explained to you. The monkeys treat this place with reverence, sometimes gathering here to sit in silence as the sun sets. The symbols seem to shift when you look at them sidelong—almost readable, almost familiar, like words on the tip of your tongue.",
       "exits": {
         "south": "gathering_trees",
         "east": "big_fig"
       },
-      "objects": ["stone_carvings"],
+      "objects": ["stone_carvings", "offering_bowl", "strange_feather"],
       "characters": [],
       "firstVisit": true,
-      "onFirstVisit": "In the morning light, the carvings seem different somehow. You trace a finger over one symbol—a tree with roots that reach both up and down—and feel a strange tingling in your chest."
+      "onFirstVisit": "In the morning light, the carvings seem to glow with an inner warmth. You've passed this stone a thousand times, but today something feels different. You trace a finger over one symbol—a tree with roots that reach both up and down—and feel a strange tingling in your chest, as if something inside you is answering."
     },
     "big_fig": {
       "id": "big_fig",
       "name": "The Big Fig",
-      "description": "The largest tree on the island, its trunk wider than ten monkeys holding hands. Its branches spread like a great green umbrella over everything. This is where the family gathers for celebrations, for meetings, for all the important moments of monkey life.",
+      "description": "The largest tree on the island, its trunk wider than ten monkeys holding hands. Its branches spread like a great green umbrella over everything, and its roots twist and dive like frozen serpents. This is the heart of the island—where the family gathers for celebrations, for councils, for all the important moments of monkey life. Something about this tree has always felt special to you, though you've never known why.",
       "exits": {
         "west": "gathering_trees",
-        "south": "old_wall"
+        "south": "old_wall",
+        "southwest": "ancient_stone"
       },
-      "objects": ["hanging_vines", "flower_garlands"],
+      "objects": ["hanging_vines", "flower_garlands", "massive_trunk", "high_branches"],
       "characters": ["nela", "ohblio"],
       "firstVisit": true,
-      "onFirstVisit": "As you push through the leaves into the clearing around the Big Fig, a chorus of voices erupts: 'SURPRISE!' The entire family is here—Nela at the center, Ohblio bouncing with barely contained excitement, and dozens of other monkeys chattering and cheering. Garlands of flowers hang from every branch. It's a party. YOUR party.",
+      "onFirstVisit": "As you push through the leaves into the clearing around the Big Fig, a chorus of voices erupts: 'SURPRISE!' The entire family is here—Nela at the center, her silver fur bright in the dappled light, Ohblio bouncing with barely contained excitement, and dozens of other monkeys chattering and cheering. Garlands of yellow and white flowers hang from every branch, swaying in the breeze. It's a party. YOUR party.",
       "triggersEvent": "birthday_party"
     }
   },
@@ -160,18 +190,116 @@
     "worn_blanket": {
       "id": "worn_blanket",
       "name": "worn blanket",
-      "description": "A soft, faded blanket that Nela wove for you when you were small. It smells of home.",
+      "description": "A soft, faded blanket that Nela wove for you when you were small. The colors have faded from red to rose, but it still smells of home—of leaves and warm fur and safety.",
       "canTake": true,
       "location": "sleeping_hollow",
-      "onTake": "You fold the blanket carefully. Somehow, you feel you should bring it with you today."
+      "onTake": "You fold the blanket carefully, pressing it to your nose for a moment. Somehow, you feel you should bring it with you today."
+    },
+    "woven_doll": {
+      "id": "woven_doll",
+      "name": "woven doll",
+      "description": "A small figure made of twisted grass and vines, vaguely human-shaped. Nela made it for you when you were very young, before you understood why you looked different from everyone else.",
+      "canTake": true,
+      "location": "sleeping_hollow",
+      "onTake": "You tuck the little doll into your hair, where it nestles behind your ear. An old habit.",
+      "onExamine": "The doll is worn soft from years of handling. Its arms are spread wide, as if reaching for an embrace. Or perhaps reaching for something beyond."
+    },
+    "leaf_nest": {
+      "id": "leaf_nest",
+      "name": "leaf nest",
+      "description": "The indentation in the leaves where you sleep, shaped by years of curling up in the same spot. It's perfectly Lemi-sized.",
+      "canTake": false,
+      "location": "sleeping_hollow",
+      "onExamine": "The leaves are still warm from your body. You've slept here every night you can remember. Will you always?"
+    },
+    "empty_nest": {
+      "id": "empty_nest",
+      "name": "Nela's nest",
+      "description": "Nela's sleeping place—a carefully arranged bower of the softest leaves, worn smooth by years of use. The leaves are cold and undisturbed.",
+      "canTake": false,
+      "location": "nelas_bower",
+      "onExamine": "The leaves are cold. Nela hasn't slept here tonight—unusual, for someone who values her rest. Whatever drew her away must have been important."
+    },
+    "scattered_petals": {
+      "id": "scattered_petals",
+      "name": "scattered petals",
+      "description": "Yellow and white flower petals scattered across the ground, leading eastward.",
+      "canTake": false,
+      "location": "nelas_bower",
+      "onExamine": "The petals form a trail, as if someone carrying an armful of flowers passed through in a hurry. They're fresh—not yet wilted. Someone was here recently, gathering flowers before dawn."
+    },
+    "weaving_frame": {
+      "id": "weaving_frame",
+      "name": "weaving frame",
+      "description": "A simple wooden frame strung with partially woven grass. Nela uses it to make blankets and mats.",
+      "canTake": false,
+      "location": "nelas_bower",
+      "onExamine": "A half-finished weaving hangs on the frame—it looks like it might become a sash or belt. The pattern is more intricate than usual, with symbols woven in. Nela must be making something special."
+    },
+    "herb_bundles": {
+      "id": "herb_bundles",
+      "name": "herb bundles",
+      "description": "Dried herbs hanging from the roots above—some for medicine, some for cooking, some for ceremonies.",
+      "canTake": false,
+      "location": "nelas_bower",
+      "onExamine": "You recognize most of them: silvervine for headaches, bitterroot for stomach troubles, dreamweed for... well, Nela never told you what dreamweed is for. The bundles sway slightly, releasing their dusty fragrance."
+    },
+    "dark_water": {
+      "id": "dark_water",
+      "name": "water",
+      "description": "The moat water is dark and still, reflecting the sky like a mirror.",
+      "canTake": false,
+      "location": "the_shore",
+      "onExamine": "You peer into the water and see your own face looking back—brown skin, tangled dark hair, eyes that don't look like anyone else's on the island. The face of a stranger who is also you."
+    },
+    "driftwood_collection": {
+      "id": "driftwood_collection",
+      "name": "driftwood",
+      "description": "A pile of interesting driftwood pieces you've collected over the years. Some are smooth as bone, others twisted into shapes that look almost deliberate.",
+      "canTake": false,
+      "location": "the_shore",
+      "onExamine": "You've arranged them by shape and size, the way Nela taught you to organize things. That one looks like a bird. That one like a curled hand. That one... you've always thought it looks like a woman reaching toward the sky."
+    },
+    "distant_city": {
+      "id": "distant_city",
+      "name": "city",
+      "description": "Beyond the zoo walls, the towers of Delnai rise in the morning light.",
+      "canTake": false,
+      "location": "the_shore",
+      "onExamine": "Delnai. The city at the river's mouth. You've walked its streets at night with Ohblio, darting through shadows, marveling at the lights and the strange human things. During the day it looks different—ordinary, somehow. Less magical. But you know what secrets the night holds there."
+    },
+    "scratched_stones": {
+      "id": "scratched_stones",
+      "name": "scratched stones",
+      "description": "Flat stones near the water's edge, covered with scratched marks.",
+      "canTake": false,
+      "location": "the_shore",
+      "onExamine": "You've been scratching marks here for as long as you can remember—practicing the symbols the monkeys use for counting and naming things. And lately, practicing human letters too, copying shapes you've seen in the city. The stones are your secret alphabet, known only to you."
     },
     "dropped_mango": {
       "id": "dropped_mango",
       "name": "half-eaten mango",
-      "description": "A ripe mango with small bite marks. Someone was eating this and left suddenly.",
+      "description": "A ripe mango with small bite marks. The flesh is still fresh and glistening—someone was eating this and left suddenly.",
       "canTake": true,
       "location": "gathering_trees",
-      "onTake": "You pick up the mango. Waste not, want not, as Nela always says."
+      "onTake": "You pick up the mango. The bite marks are small—probably one of the younger monkeys. They must have been called away in a hurry. Waste not, want not, as Nela always says."
+    },
+    "fallen_flower": {
+      "id": "fallen_flower",
+      "name": "yellow flower",
+      "description": "A single yellow flower lying on the ground, slightly crushed.",
+      "canTake": true,
+      "location": "gathering_trees",
+      "onTake": "You pick up the flower. It's the same kind you saw scattered in Nela's bower. Someone was carrying flowers through here.",
+      "onExamine": "The flower is slightly crushed, as if stepped on in passing. These grow near the Big Fig—why would someone be carrying them away from there, then dropping them here?"
+    },
+    "claw_marks": {
+      "id": "claw_marks",
+      "name": "claw marks",
+      "description": "Fresh scratches in the bark of a mango tree, the kind monkeys leave when climbing in a hurry.",
+      "canTake": false,
+      "location": "gathering_trees",
+      "onExamine": "The marks are fresh—sap still beading from the scratches. Several monkeys climbed this tree quickly and recently, scrambling toward the Big Fig. It must have been exciting, whatever called them away."
     },
     "peephole": {
       "id": "peephole",
@@ -179,39 +307,80 @@
       "description": "A narrow crack in the old stone wall, just wide enough to peer through.",
       "canTake": false,
       "location": "old_wall",
-      "onExamine": "Through the crack, you see the zoo pathways. Humans stroll past—tall, strange creatures who walk on two legs like you do. You've always wondered about that."
+      "onExamine": "Through the crack, you see the zoo pathways. Humans stroll past—tall, strange creatures who walk on two legs like you do. A woman pushes a small human in a wheeled chair. An old man sits on a bench, scattering food for birds. You've always watched them and wondered: do they know you're watching back?"
     },
     "loose_stone": {
       "id": "loose_stone",
       "name": "loose stone",
-      "description": "One of the wall stones wobbles slightly when touched.",
+      "description": "One of the wall stones wobbles slightly when touched. It's been loose as long as you can remember.",
       "canTake": false,
       "location": "old_wall",
-      "onExamine": "The stone shifts when you push it. There might be a space behind the wall... but Nela has always warned you never to go beyond it."
+      "onExamine": "The stone shifts when you push it, revealing a gap just wide enough for a small body to squeeze through. You and Ohblio have used this passage on your nighttime adventures. Nela doesn't know about it. You think. You hope."
+    },
+    "moss_patterns": {
+      "id": "moss_patterns",
+      "name": "moss patterns",
+      "description": "Moss growing on the old stones in curious patterns, almost like they're following invisible lines.",
+      "canTake": false,
+      "location": "old_wall",
+      "onExamine": "You've never really looked closely before, but the moss seems to grow in spirals and whorls that form shapes—a circle here, a branching pattern there. Almost like the carvings on the Ancient Stone. As if the wall remembers something."
     },
     "spring_water": {
       "id": "spring_water",
       "name": "spring water",
-      "description": "Clear, cold water bubbling up from somewhere deep below.",
+      "description": "Clear, cold water bubbling up from somewhere deep below, forming a small pool before trickling away between the rocks.",
       "canTake": false,
       "location": "hidden_grotto",
-      "onExamine": "The water is cool and sweet. It tastes of stone and secrets."
+      "onExamine": "The water is cool and sweet. It tastes of stone and secrets. Sometimes, when you drink from it, you feel a strange clarity, as if the water is washing away a fog you didn't know was there."
     },
     "carved_initials": {
       "id": "carved_initials",
       "name": "carved initials",
-      "description": "Rough letters scratched into the rock: L + O. You carved them here with Ohblio, the summer you discovered this place.",
+      "description": "Rough letters scratched into the rock: L + O.",
       "canTake": false,
       "location": "hidden_grotto",
-      "onExamine": "You smile, remembering the afternoon you and Ohblio spent hours scratching these marks. 'Friends forever,' he had said. 'Even longer,' you'd replied."
+      "onExamine": "You smile, remembering the afternoon you and Ohblio spent hours scratching these marks. 'Friends forever,' he had said. 'Even longer,' you'd replied. He'd looked at you strangely then, like he wanted to say something else, but instead he just bumped his head against your shoulder and made a silly face."
+    },
+    "smooth_pebbles": {
+      "id": "smooth_pebbles",
+      "name": "smooth pebbles",
+      "description": "A collection of perfectly smooth pebbles gathered from the spring, arranged in a little pile.",
+      "canTake": false,
+      "location": "hidden_grotto",
+      "onExamine": "You and Ohblio have been collecting these for years—only the smoothest, most perfectly round ones make the cut. There are exactly one hundred and seven. You counted last week."
+    },
+    "green_light": {
+      "id": "green_light",
+      "name": "green light",
+      "description": "The light in the grotto has a faint greenish tinge, filtered through the leaves and moss.",
+      "canTake": false,
+      "location": "hidden_grotto",
+      "onExamine": "The light seems to shift and pulse very slowly, like breathing. You've always found it soothing—like being inside something alive and peaceful."
     },
     "stone_carvings": {
       "id": "stone_carvings",
       "name": "ancient carvings",
-      "description": "Symbols worn smooth by countless years. A tree with roots reaching up and down. Figures that might be humans, might be monkeys, might be both. A star, or perhaps a flower.",
+      "description": "Symbols worn smooth by countless years, carved into the surface of the great stone.",
       "canTake": false,
       "location": "ancient_stone",
-      "onExamine": "The more you look, the more the symbols seem to shift and breathe. For a moment, you think you almost understand them... but then the meaning slips away, like a dream upon waking."
+      "onExamine": "A tree with roots reaching up and down. Figures that might be humans, might be monkeys, might be something in between. A star, or perhaps a flower. And in the center, a shape like a seedpod—or a pendant. The more you look, the more the symbols seem to shift and breathe. For a moment, you think you almost understand them... but then the meaning slips away, like a dream upon waking."
+    },
+    "offering_bowl": {
+      "id": "offering_bowl",
+      "name": "stone bowl",
+      "description": "A shallow bowl carved into a smaller stone near the main carving, stained by years of offerings.",
+      "canTake": false,
+      "location": "ancient_stone",
+      "onExamine": "The old ones sometimes leave fruit or flowers here, though they never explain why. Today the bowl holds a few fresh petals and a single perfect fig. Someone has been here very recently."
+    },
+    "strange_feather": {
+      "id": "strange_feather",
+      "name": "strange feather",
+      "description": "A long feather with iridescent colors that shift from green to gold to violet.",
+      "canTake": true,
+      "location": "ancient_stone",
+      "onTake": "You pick up the feather carefully. It's warm to the touch, and seems to hum very faintly, like a voice just below hearing.",
+      "onExamine": "You've never seen a bird with feathers like this on the island. The colors shift as you look at it, and you feel a strange pull in your chest—as if the feather recognizes you. Or as if you recognize it."
     },
     "hanging_vines": {
       "id": "hanging_vines",
@@ -219,15 +388,39 @@
       "description": "Long vines draping from the great branches of the Big Fig, perfect for swinging.",
       "canTake": false,
       "location": "big_fig",
-      "onExamine": "You've spent countless hours swinging from these vines with Ohblio, shrieking with laughter."
+      "onExamine": "You've spent countless hours swinging from these vines with Ohblio, shrieking with laughter while Nela calls for you to be careful. The vines are alive—part of the tree—and they've always seemed to catch you when you slip."
     },
     "flower_garlands": {
       "id": "flower_garlands",
       "name": "flower garlands",
-      "description": "Delicate chains of yellow and white flowers strung between the branches.",
+      "description": "Delicate chains of yellow and white flowers strung between the branches, swaying gently.",
       "canTake": false,
       "location": "big_fig",
-      "onExamine": "Someone spent hours making these. The flowers are the kind that only bloom at the top of the island, where the old ones rarely climb anymore. Ohblio must have gathered them."
+      "onExamine": "Someone spent hours making these—dozens of garlands, hundreds of flowers. They're the kind that only bloom at the top of the island, where the old ones rarely climb anymore. Ohblio must have gathered them, probably at dawn, probably while you were still sleeping."
+    },
+    "massive_trunk": {
+      "id": "massive_trunk",
+      "name": "trunk",
+      "description": "The trunk of the Big Fig is enormous, its bark rough and deeply furrowed, warm to the touch even in cool weather.",
+      "canTake": false,
+      "location": "big_fig",
+      "onExamine": "You press your palm against the bark, and for a moment you feel something like a pulse—slow and deep, like the heartbeat of something vast and ancient. The Big Fig has always felt special, though you've never known why. Today, with your hand against its trunk, you almost understand."
+    },
+    "high_branches": {
+      "id": "high_branches",
+      "name": "high branches",
+      "description": "Far above, the highest branches of the Big Fig disappear into a canopy so thick it might as well be another world.",
+      "canTake": false,
+      "location": "big_fig",
+      "onExamine": "You've climbed as high as you dared once, on a dare from Ohblio. Up there, you could see over the wall, over the zoo, all the way to where the river meets the sea. You thought you heard voices in the leaves, but when you listened closer, there was only wind."
+    },
+    "keni_pendant": {
+      "id": "keni_pendant",
+      "name": "Keni's pendant",
+      "description": "A pendant on a woven cord, shaped like a seed, glowing faintly from within. It belonged to your grandmother.",
+      "canTake": false,
+      "location": "inventory",
+      "onExamine": "The pendant pulses with a soft, warm light that seems to respond to your heartbeat. When you hold it, you feel a connection to something vast and deep—to the roots beneath your feet and the sky above your head. To a woman you never knew, but whose blood runs in your veins."
     }
   },
   "events": {
@@ -247,11 +440,15 @@
         },
         {
           "type": "narration",
-          "text": "You laugh, hugging him back. But then you notice Nela's expression. She is smiling, yes, but there is something else in her eyes. Something heavy."
+          "text": "You laugh, hugging him back, breathing in his familiar smell of fruit and mischief. Around you, the other monkeys are chattering, passing food, climbing the vines. But then you notice Nela's expression. She is smiling, yes, but there is something else in her eyes. Something heavy. Something that looks almost like grief."
         },
         {
           "type": "narration",
-          "text": "The other monkeys slowly fall silent. They part, creating a path to where Nela sits beneath the great trunk. She gestures for you to come closer."
+          "text": "The other monkeys slowly fall silent, as if responding to a signal you didn't see. They part, creating a path through the crowd to where Nela sits beneath the great trunk, her silver fur bright against the dark bark. She gestures for you to come closer."
+        },
+        {
+          "type": "narration",
+          "text": "Your bare feet whisper across the soft earth as you approach. The garlands sway overhead. The Big Fig seems to lean in, listening."
         },
         {
           "type": "dialogue",
@@ -261,7 +458,7 @@
         },
         {
           "type": "narration",
-          "text": "The silence is absolute. Even the birds seem to be listening."
+          "text": "The silence is absolute. Even the birds have stopped singing. You can hear your own heart beating, fast and frightened, like a small animal caught in a snare."
         }
       ],
       "setsFlags": {
@@ -277,37 +474,41 @@
           "type": "dialogue",
           "character": "nela",
           "language": "mugard",
-          "text": "Long ago, before the great catastrophe, we were not as you see us now. We were people—humans, like you. We lived in this valley alongside others, and we shared a language: Mugard. The language we still speak."
+          "text": "Long ago, before the great catastrophe, we were not as you see us now. We were people—humans, like you. We lived in this valley alongside others, and we shared a language: Mu. The language we still speak."
         },
         {
           "type": "narration",
-          "text": "A murmur ripples through the gathered monkeys. Some of the older ones lower their heads."
+          "text": "A murmur ripples through the gathered monkeys. Some of the older ones lower their heads, their eyes distant, as if remembering something from a dream."
         },
         {
           "type": "dialogue",
           "character": "nela",
           "language": "mugard",
-          "text": "Then came the defilement of the World Tree, and everything changed. A great wizard named Keni—the greatest the valley had ever known—saved us from destruction. But the magic transformed us. We became what we are now, and the humans forgot we ever existed."
+          "text": "Then came the defilement of the Worlds Tree, and everything changed. The magic that held the valley together began to unravel. A great wizard named Keni—the greatest the valley had ever known—gave everything she had to save us from destruction. But the magic transformed us. We became what we are now, and the humans... they forgot we ever existed."
         },
         {
           "type": "narration",
-          "text": "Nela reaches out and takes your hand in her weathered paw."
+          "text": "Nela reaches out and takes your hand in her weathered paw. Her grip is warm and strong."
         },
         {
           "type": "dialogue",
           "character": "nela",
           "language": "mugard",
-          "text": "Keni was your grandmother, Lemi. You are her blood. Her gift lives in you. And now that you are of age... you must decide what to do with it."
+          "text": "Keni was your grandmother, Lemi. You are her blood. Her gift lives in you—I have seen it, in the way the trees bend toward you, in the way the spring sings when you drink from it. And now that you are of age... you must decide what to do with it."
         },
         {
           "type": "narration",
-          "text": "She presses something small and warm into your palm—a pendant on a woven cord, shaped like a seed, glowing faintly from within."
+          "text": "She presses something small and warm into your palm—a pendant on a woven cord, shaped like a seed, glowing faintly from within. It pulses against your skin, and you feel something stir in your chest, like a second heartbeat waking up."
         },
         {
           "type": "dialogue",
           "character": "nela",
           "language": "mugard",
-          "text": "This was hers. Now it is yours. The forest to the west calls to those with the gift. If you can pass through its trials, you will find the wizard school—and perhaps, a way to restore what was lost."
+          "text": "This was hers. Now it is yours. The forest to the west calls to those with the gift. If you can pass through its trials, you will find the wizard school—and perhaps, a way to restore what was lost. But the choice is yours, child. It has always been yours."
+        },
+        {
+          "type": "narration",
+          "text": "The pendant glows in your hand, warm as a living thing. Above you, the Big Fig seems to shiver, its leaves whispering secrets in a language you almost understand."
         }
       ],
       "setsFlags": {
@@ -319,22 +520,26 @@
   },
   "vocabulary": {
     "verbs": {
-      "go": ["go", "walk", "move", "travel", "head"],
+      "go": ["go", "walk", "move", "travel", "head", "run"],
       "north": ["north", "n"],
       "south": ["south", "s"],
       "east": ["east", "e"],
       "west": ["west", "w"],
-      "look": ["look", "examine", "inspect", "study", "view", "check", "x", "l"],
-      "take": ["take", "get", "grab", "pick up", "collect"],
-      "drop": ["drop", "put down", "discard", "leave"],
-      "inventory": ["inventory", "i", "items", "carrying"],
-      "talk": ["talk", "speak", "ask", "say", "tell", "chat"],
-      "use": ["use", "activate"],
-      "help": ["help", "hint", "?"],
+      "southwest": ["southwest", "sw"],
+      "look": ["look", "examine", "inspect", "study", "view", "check", "x", "l", "read"],
+      "take": ["take", "get", "grab", "pick", "collect"],
+      "drop": ["drop", "put", "discard", "leave"],
+      "inventory": ["inventory", "i", "items", "carrying", "inv"],
+      "talk": ["talk", "speak", "ask", "say", "tell", "chat", "greet"],
+      "use": ["use", "activate", "touch"],
+      "help": ["help", "hint", "?", "commands"],
       "save": ["save"],
-      "load": ["load", "restore"]
+      "load": ["load", "restore"],
+      "smell": ["smell", "sniff"],
+      "listen": ["listen", "hear"],
+      "climb": ["climb", "scale"]
     },
-    "articles": ["a", "an", "the", "some"],
-    "prepositions": ["to", "at", "with", "on", "in", "from", "about"]
+    "articles": ["a", "an", "the", "some", "my"],
+    "prepositions": ["to", "at", "with", "on", "in", "from", "about", "into", "through", "up"]
   }
 }
